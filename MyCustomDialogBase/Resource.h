@@ -30,7 +30,6 @@
 #define IDC_GRP_TEST_ETC                1009
 #define IDC_TEST_SLIDER_EDIT_1          1009
 #define IDC_BTN_CEDIT_DLG               1010
-#define IDC_TEST_SLIDER_EDIT2           1010
 #define IDC_TEST_SLIDER_EDIT_2          1010
 #define IDC_TEST_SLIDER_2               1011
 

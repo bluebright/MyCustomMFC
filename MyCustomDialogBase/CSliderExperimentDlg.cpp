@@ -7,7 +7,6 @@
 #include "afxdialogex.h"
 #include "KTypeCaster.h"
 
-
 // CSliderExperimentDlg 대화 상자
 
 IMPLEMENT_DYNAMIC(CSliderExperimentDlg, CDialogEx)
@@ -49,19 +48,19 @@ BOOL CSliderExperimentDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	m_kSlider_1.SetRange(0, 200);
-	m_kSlider_1.SetPos(40);
+	m_kSlider_1.SetRange(10, 200);
+	m_kSlider_1.SetPos(60);
 	m_kSlider_1.SetTicFreq(10);
-	m_kSlider_1.SetLineSize(5);
-	m_kSlider_1.SetPageSize(10);
+	m_kSlider_1.SetLineSize(20);
+	m_kSlider_1.SetPageSize(40);
 
 	m_sliderCEdit_1.SetWindowText(KTypeCaster::CstFormat(_T("%d"), m_kSlider_1.GetPos()));
 
-	m_kSlider_2.SetRange(0, 200);
-	m_kSlider_2.SetPos(40);
+	m_kSlider_2.SetRange(10, 200);
+	m_kSlider_2.SetPos(70);
 	m_kSlider_2.SetTicFreq(10);
-	m_kSlider_2.SetLineSize(5);
-	m_kSlider_2.SetPageSize(10);
+	m_kSlider_2.SetLineSize(20);
+	m_kSlider_2.SetPageSize(40);
 
 	m_sliderCEdit_2.SetWindowText(KTypeCaster::CstFormat(_T("%d"), m_kSlider_2.GetPos()));
 
@@ -70,10 +69,21 @@ BOOL CSliderExperimentDlg::OnInitDialog()
 				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
 }
 
-
+/*
+nSBCode in WinUser.h
+0	SB_LINELEFT / SB_LINEUP (Move slider LEFT or UP) : LEFT, TOP Arrow key
+1	SB_LINERIGHT / SB_LINEDOWN (Move slider RIGHT or DOWN) : RIGHT, DOWN Arrow key
+2	SB_PAGELEFT / SB_PAGEUP (Move slider LEFT or UP) : Click LEFT, TOP of slider / PAGE UP
+3	SB_PAGERIGHT / SB_PAGEDOWN (Move slider RIGHT or DOWN) : Click RIGHT, DOWN of slider / PAGE DOWN
+4	SB_THUMBPOSITION : Callback when you release the slider (thumb) left click
+5	SB_THUMBTRACK : Callback while dragging the slider(thumb) with the mouse (Each position)
+6	SB_LEFT / SB_TOP : HOME key
+7	SB_RIGHT / SB_BOTTOM : END key
+8	SB_ENDSCROLL : Call after scroll action
+*/
 void CSliderExperimentDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	if (pScrollBar) {
+	if (pScrollBar != NULL) {
 		if (pScrollBar->GetDlgCtrlID() == IDC_TEST_SLIDER_1) {
 			CString str;
 			CString buf;
@@ -130,7 +140,7 @@ void CSliderExperimentDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrol
 
 void CSliderExperimentDlg::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	if (pScrollBar) {
+	if (pScrollBar != NULL) {
 		if (pScrollBar->GetDlgCtrlID() == IDC_TEST_SLIDER_2) {
 			CString str;
 			CString buf;
