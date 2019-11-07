@@ -192,6 +192,8 @@
     <ClInclude Include="Converter\CSVIterator.h" />
     <ClInclude Include="Converter\CSVRow.h" />
     <ClInclude Include="Control\KEditCtrl.h" />
+    <ClInclude Include="Control\KSliderCtrl.h" />
+    <ClInclude Include="CSliderExperimentDlg.h" />
     <ClInclude Include="Util\KFileFunc.h" />
     <ClInclude Include="Control\KTreeCtrl.h" />
     <ClInclude Include="MyCustom\MyData.h" />
@@ -217,6 +219,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Control\KSliderCtrl.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CSliderExperimentDlg.cpp" />
     <ClCompile Include="MyCustom\MyData.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>

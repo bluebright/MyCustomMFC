@@ -24,12 +24,12 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 // 구현입니다.
@@ -78,6 +78,7 @@ BEGIN_MESSAGE_MAP(CMyCustomDialogBaseDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BTN_TEST_CONVERT, &CMyCustomDialogBaseDlg::OnBnClickedBtnTestConvert)
 	ON_BN_CLICKED(IDC_BTN_PARSE, &CMyCustomDialogBaseDlg::OnBnClickedBtnParse)
 	ON_BN_CLICKED(IDC_BTN_CEDIT_DLG, &CMyCustomDialogBaseDlg::OnBnClickedBtnCeditDlg)
+	ON_BN_CLICKED(IDC_BTN_CSLIDER_DLG, &CMyCustomDialogBaseDlg::OnBnClickedBtnCsliderDlg)
 END_MESSAGE_MAP()
 
 
@@ -302,12 +303,27 @@ void CMyCustomDialogBaseDlg::OnBnClickedBtnTest()
 	MyData *tree_item_data = NULL;
 	BOOL result = k_tree_ctrl.GetChildItemDataFromParent_P(&h_root, &tree_item_data, 4);
 
-	if (result) {		
+	if (result) {
 		msg = KTypeCaster::CstFormat((_T("Find child !!\n%s")), tree_item_data->GetName());
 	}
 	else {
 		msg = _T("Find error!!\nNot contain or index out of bound !!");
 	}
+
+	std::vector<std::string> tokens_1;
+	KStringParser::StdStrTokenize("This is sample : sentence 1 : sent			ence 2 :sentence 3: sentence 4 : sentence 5 :						", tokens_1, false, " : ");
+
+	std::vector<std::string> tokens_2;
+	KStringParser::StdStrTokenize(" : This is sample : sentence 1 : sentence 2 :sentence 3: sentence 4 : sentence 5 :", tokens_2, true, " : ");
+
+	std::vector<std::string> tokens_3;
+	KStringParser::StdStrTokenize("This is sample :3 ttt:", tokens_3, true, " : ");
+
+	std::vector<std::string> tokens_4;
+	KStringParser::StdStrTokenize("1 : This is sample : sentence 1 : sentence 2 :sentence 3: sentence 4 : sentence 5 :", tokens_4, true, " : ");
+
+	std::vector<std::string> tokens_5;
+	KStringParser::StdStrTokenize("5: This is sample : sentence 1 : sentence 2 :sentence 3: sentence 4 : sentence 5: ", tokens_5, true, " : ");
 
 	AfxMessageBox(msg);
 }
@@ -483,6 +499,12 @@ void CMyCustomDialogBaseDlg::OnBnClickedBtnParse()
 
 void CMyCustomDialogBaseDlg::OnBnClickedBtnCeditDlg()
 {
-	CEditExperimentDlg experimentDlg;
-	experimentDlg.DoModal();
+	CEditExperimentDlg ceditExperimentDlg;
+	ceditExperimentDlg.DoModal();
+}
+
+void CMyCustomDialogBaseDlg::OnBnClickedBtnCsliderDlg()
+{
+	CSliderExperimentDlg csliderExperimentDlg;
+	csliderExperimentDlg.DoModal();
 }
