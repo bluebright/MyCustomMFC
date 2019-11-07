@@ -4,6 +4,7 @@
 
 #pragma once
 #include "CEditExperimentDlg.h"
+#include "CSliderExperimentDlg.h"
 #include "KTreeCtrl.h" 
 #include "MyData.h"
 
@@ -49,7 +50,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
-
-
+	
 	afx_msg void OnBnClickedBtnCeditDlg();
+	afx_msg void OnBnClickedBtnCsliderDlg();
 };
